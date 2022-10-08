@@ -96,6 +96,10 @@ const Decodings = {
 
 function encrypt(){
     let input = document.getElementById("input").value;
+    if(!input.match(/[a-z\*\>CINLUJ\s]/) ){
+        document.getElementById("output").innerHTML = "Your input is invalid!";
+        return;
+    }
     let runningString = "";
     input.split(" ").forEach(word => {
         runningString += recode(swap(encode(word) ) );
